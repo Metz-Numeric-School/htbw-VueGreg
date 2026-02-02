@@ -1,3 +1,12 @@
+## [0.1.5] - 2026-02-02
+
+### 🐛 Bug Fixes
+
+- Ajout configuration de sécurité
+
+### 📚 Documentation
+
+- Update changelog file to 0.1.4
 ## [0.1.4] - 2026-02-02
 
 ### 🐛 Bug Fixes
