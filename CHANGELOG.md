@@ -1,3 +1,12 @@
+## [0.1.4] - 2026-02-02
+
+### 🐛 Bug Fixes
+
+- Renforcement de l'authentification et session
+
+### 📚 Documentation
+
+- Update changelog file to fix
 ## [0.1.3] - 2026-02-02
 
 ### 🐛 Bug Fixes
