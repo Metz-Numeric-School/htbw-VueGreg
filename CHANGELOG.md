@@ -1,3 +1,12 @@
+## [0.1.2] - 2026-02-02
+
+### 🐛 Bug Fixes
+
+- Correction faille XSS (Cross-Site Scripting)
+
+### 📚 Documentation
+
+- Changelog update
 ## [0.1.1] - 2026-02-02
 
 ### 🐛 Bug Fixes
