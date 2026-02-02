@@ -1,11 +1,15 @@
 # Procédure de Déploiement
 
-Décrivez ci-dessous votre procédure de déploiement en détaillant chacune des étapes. De la préparation du VPS à la méthodologie de déploiement continu.
+Pour commencer j'ai installé aaPanel sur le vps avec la commande 
+```URL=https://www.aapanel.com/script/install_7.0_en.sh && if [ -f /usr/bin/curl ];then curl -ksSO "$URL" ;else wget --no-check-certificate -O install_7.0_en.sh "$URL";fi;bash install_7.0_en.sh aapanel```
 
-## Préparation du VPS
+Une fois installé j'ai téléchargé les outils nécessaire, NGinx, Apache, MySQL, PHP...
 
-Todo...
+J'ai créer un repo local dans le VPS avec la commande 
+``` git init --bare``` dans le dossier ``` /var/depot_git ```, 
+celui ci à été créer avec la commande ``` mkdir depot_git ```
 
-## Méthode de déploiement
+Ensuite je retourne sur ma machine local et j'ajoute la remote au VPS avec la commande :
+``` git remote add vps root@192.168.23.144:/var/depot_git ```
+PS: J'ai nommé la remote vps par souci de compréhension.
 
-Todo...
