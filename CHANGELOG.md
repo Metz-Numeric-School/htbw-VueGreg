@@ -1,3 +1,12 @@
+## [0.1.3] - 2026-02-02
+
+### 🐛 Bug Fixes
+
+- Ajout protection csrf
+
+### 📚 Documentation
+
+- Update changelog file
 ## [0.1.2] - 2026-02-02
 
 ### 🐛 Bug Fixes
