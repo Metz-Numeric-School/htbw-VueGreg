@@ -6,10 +6,8 @@
 
             <h1>Connexion</h1>
 
-            <?php if(isset($error)): ?>
-                <div class="alert alert-danger" role="alert">
-                    <?= $error ?>
-                </div>
+            <?php if (isset($error)): ?>
+                <div class="alert alert-danger"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></div>
             <?php endif; ?>
 
             <div class="card">

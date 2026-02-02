@@ -1,7 +1,7 @@
 <?php $layout = 'base.html.php'; ?>
 
 <div class="container py-5">
-    <h1 class="mb-4">Bonjour <?= $_SESSION['user']['username'] ?> !</h1>
+    <h1 class="mb-4">Bonjour <?= htmlspecialchars($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8') ?> !</h1>
 
     <div class="row mb-4">
         <!-- Statistiques rapides -->
@@ -47,8 +47,8 @@
                             <div class="col-md-4 mb-3">
                                 <div class="card shadow-sm">
                                     <div class="card-body">
-                                        <h5 class="card-title"><?= $habit->getName() ?></h5>
-                                        <p class="card-text"><?= $habit->getDescription() ?></p>
+                                        <h5 class="card-title"><?= htmlspecialchars($habit->getName(), ENT_QUOTES, 'UTF-8') ?></h5>
+                                        <p class="card-text"><?= htmlspecialchars($habit->getDescription(), ENT_QUOTES, 'UTF-8') ?></p>
 
                                         <form action="/habit/toggle" method="post" class="mb-2">
                                             <input type="hidden" name="habit_id" value="<?= $habit->getId() ?>">
