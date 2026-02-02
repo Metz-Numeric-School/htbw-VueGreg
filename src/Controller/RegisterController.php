@@ -20,7 +20,7 @@ class RegisterController extends AbstractController
 
         if(!empty($_POST['user'])) {
             // Validation CSRF
-            if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+            if (!isset($_POST['csrf_token']) || !isset($_SESSION['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
                 $error = 'Token CSRF invalide';
                 return $this->render('register/index.html.php', [
                     'title' => 'Inscription',

@@ -39,7 +39,7 @@ class HabitsController extends AbstractController
 
         if (!empty($_POST['habit'])) {
             // Validation CSRF
-            if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+            if (!isset($_POST['csrf_token']) || !isset($_SESSION['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
                 $errors['csrf'] = 'Token CSRF invalide';
                 return $this->render('member/habits/new.html.php', [
                     'errors' => $errors
@@ -75,7 +75,7 @@ class HabitsController extends AbstractController
     public function toggle()
     {
         // Validation CSRF
-        if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        if (!isset($_POST['csrf_token']) || !isset($_SESSION['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
             header('Location: /dashboard');
             exit;
         }
