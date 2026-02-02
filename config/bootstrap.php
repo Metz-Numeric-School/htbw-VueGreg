@@ -1,6 +1,12 @@
 <?php
 
-session_start();
+session_start([
+    'cookie_httponly' => true,
+    'cookie_secure' => true,
+    'cookie_samesite' => 'Strict',
+    'use_strict_mode' => true,
+    'use_only_cookies' => true,
+]);
 
 // Load routes from config/routes.json
 $routesFile = __DIR__ . '/routes.json';

@@ -34,13 +34,15 @@ class SecurityController extends AbstractController
 
             $username = $_POST['username'] ?? '';
             $password = $_POST['password'] ?? '';
+            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
             $user = $this->userRepository->findByEmail($username);
 
             if($user) {
                 // On vérifie le mot de passe
-                if($password == $user->getPassword()) {
+                if (password_verify($password, $user->getPassword())) {
     
+                    session_regenerate_id(true);
                     $_SESSION['user'] = [
                         'id' => $user->getId(),
                         'username' => $user->getFirstname(),

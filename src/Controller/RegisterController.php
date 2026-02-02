@@ -47,7 +47,8 @@ class RegisterController extends AbstractController
             if(count($errors) == 0) {
                 // Par défaut l'utilisateur n'est pas admin
                 $user['isadmin'] = 0;
-
+                $hashedPassword = password_hash($user['password'], PASSWORD_BCRYPT);
+                $user['password'] = $hashedPassword;
                 // On persite les informations en BDD
                 $id = $this->userRepository->insert($user);
 
