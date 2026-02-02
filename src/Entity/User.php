@@ -3,8 +3,10 @@ namespace App\Entity;
 
 use App\Entity\AbstractEntity;
 
-class User extends AbstractEntity 
+class User extends AbstractEntity
 {
+    protected static array $fillable = ['id', 'firstname', 'lastname', 'email', 'password', 'isadmin'];
+
     private $firstname;
 
     private $lastname;

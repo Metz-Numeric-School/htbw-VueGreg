@@ -7,6 +7,8 @@ use App\Repository\HabitLogRepository;
 
 class Habit extends AbstractEntity
 {
+    protected static array $fillable = ['id', 'user_id', 'name', 'description', 'created_at'];
+
     private $user_id;
     private $name;
     private $description;

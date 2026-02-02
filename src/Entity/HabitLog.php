@@ -5,6 +5,8 @@ use App\Entity\AbstractEntity;
 
 class HabitLog extends AbstractEntity
 {
+    protected static array $fillable = ['id', 'habit_id', 'log_date', 'status', 'created_at'];
+
     private $habit_id;
     private $log_date;
     private $status;

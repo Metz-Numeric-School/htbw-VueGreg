@@ -35,7 +35,8 @@ class MySqlConnector {
             ]);
 
         } catch (\PDOException $e) {
-            throw new \Exception("Connection failed: " . $e->getMessage());
+            error_log("Database connection failed: " . $e->getMessage());
+            throw new \Exception("Une erreur de connexion est survenue");
         }
     }
 

@@ -1,3 +1,4 @@
-.env.local
+
 vendor/
 SECURITY_AUDIT.md
+.env
