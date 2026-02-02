@@ -1,3 +1,9 @@
+## [0.1.6] - 2026-02-02
+
+### 📚 Documentation
+
+- Update changelog file to 0.1.5
+- Termine le remplissage de DEPLOY.md + code pour hasher les mots de passe en clair
 ## [0.1.5] - 2026-02-02
 
 ### 🐛 Bug Fixes
