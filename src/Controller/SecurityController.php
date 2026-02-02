@@ -23,6 +23,15 @@ class SecurityController extends AbstractController
         }
 
         if(!empty($_POST)) {
+            // Validation CSRF
+            if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+                $error = 'Token CSRF invalide';
+                return $this->render('security/login.html.php', [
+                    'title' => 'Login',
+                    'error' => $error,
+                ]);
+            }
+
             $username = $_POST['username'] ?? '';
             $password = $_POST['password'] ?? '';
 

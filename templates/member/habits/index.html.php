@@ -1,4 +1,8 @@
-<?php $layout = 'base.html.php'; ?>
+<?php $layout = 'base.html.php';
+if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+?>
 <div class="container py-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1>Mes habitudes</h1>
@@ -16,6 +20,7 @@
 
                             <!-- Bouton pour marquer comme fait -->
                             <form action="/habit/toggle" method="post" class="mb-2">
+                                <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
                                 <input type="hidden" name="habit_id" value="<?= $habit->getId() ?>">
                                 <button type="submit" 
                                         class="btn <?= $habit->isCompletedToday() ? 'btn-success' : 'btn-outline-success' ?> btn-sm">

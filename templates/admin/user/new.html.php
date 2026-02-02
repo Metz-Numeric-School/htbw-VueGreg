@@ -1,4 +1,6 @@
-<?php $layout = 'admin/base.html.php'; ?>
+<?php $layout = 'admin/base.html.php'; 
+$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+?>
 <div class="container">
 
     <div class="row align-items-center">
@@ -16,6 +18,7 @@
                 <div class="alert alert-danger"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></div>
             <?php endif; ?>
             <form action="/admin/user/new" method="post">
+                <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
                 <div class="mb-3">
                     <label for="lastname" class="form-label">Nom</label>
                     <input type="text" class="form-control" name="user[lastname]" id="lastname" aria-describedby="lastnameHelp" placeholder="ex: DOE">

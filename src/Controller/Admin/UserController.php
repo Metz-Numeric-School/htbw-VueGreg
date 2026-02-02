@@ -29,6 +29,14 @@ class UserController extends AbstractController
 
         if(!empty($_POST['user']))
         {
+            // Validation CSRF
+            if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+                return $this->render('admin/user/new.html.php', [
+                    'errors' => [],
+                    'error' => 'Token CSRF invalide'
+                ]);
+            }
+
             $user = $_POST['user'];
             
             if(empty($user['lastname']))

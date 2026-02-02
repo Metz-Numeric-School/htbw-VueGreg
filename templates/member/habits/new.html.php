@@ -1,9 +1,12 @@
-<?php $layout = 'base.html.php'; ?>
+<?php $layout = 'base.html.php'; 
+$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+?>
 
 <div class="container py-5">
     <h1>Ajouter une nouvelle habitude</h1>
 
     <form action="/habits/create" method="post" class="mt-4">
+        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
         <div class="mb-3">
             <label for="habit_name" class="form-label">Nom de l'habitude</label>
             <input type="text" name="habit[name]" id="habit_name" class="form-control" 

@@ -1,4 +1,6 @@
-<?php $layout = 'base.html.php'; ?>
+<?php $layout = 'base.html.php'; 
+$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+?>
 <div class="container py-5">
 
     <div class="row justify-content-center">
@@ -13,6 +15,7 @@
             <div class="card">
                 <div class="card-body">
                     <form action="/login" method="post">
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" name="username" id="email" aria-describedby="emailHelp">
